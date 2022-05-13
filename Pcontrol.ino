@@ -9,7 +9,7 @@ float Error= 0;                                    // Error value
 int PV= 0;                                         // Process Variable value
 int CO= 0;                                         // Control output value
 int screen= 0;                                     // Screen page
-int Setpoint= 0;                                   // Setp[oint value
+int Setpoint= 0;                                   // Setpoint value
 float pGain= 0;                                    // pGain value
 
 /* Input pin number */
@@ -31,7 +31,7 @@ void setup() {                                    // put your setup code here, t
  pinMode(7, INPUT);                                  // Pin 7 is the PB to go to the next screen
  pinMode(13, INPUT);                                 // Pin 13 is the PB to go back to the previous screen
  Serial.begin(9600);                                 // 9600 bits per second(baud rate)
- lcd.begin(16,2);;                                   // #columns, #rows
+ lcd.begin(16,2);                                    // #columns, #rows
 }
 
 void loop() {                                    // put your main code here, to run repeatedly:
@@ -70,7 +70,7 @@ prevP = digitalRead(7);                             // Condition to change scree
   delay(100);
 }
  
-                       /* Switch case for the first screen display */
+                       /* Switch case for the second screen display */
  switch(screen){
   case 1:{
     if (up == 1){                                 // condition of PB UP for set point
@@ -102,7 +102,7 @@ prevP = digitalRead(7);                             // Condition to change scree
                       /* Switch case for the third screen display */
   case 2: {
     if (up == 1){                                // condition of PB UP for pGain
-  pGain = pGain + 0.01;                          // Hysteresis with an increment of 0.01
+  pGain = pGain + 0.01;                          // pGain with an increment of 0.01
  }
  if (down == 1){                                 // condition of PB DOWN for pGain
   pGain = pGain - 0.01;                          // pGain with an decrement of 0.01 
