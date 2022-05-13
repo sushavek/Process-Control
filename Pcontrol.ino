@@ -13,11 +13,11 @@ int Setpoint= 0;                                   // Setp[oint value
 float pGain= 0;                                    // pGain value
 
 /* Input pin number */
-int up=9;
-int down=8;
-int LED=10;
-int nextP=13;
-int prevP=7;
+int up=9;                                          // Push Button UP pin
+int down=8;                                        // Push Butotn DOWN pin
+int LED=10;                                        // LED pin number
+int nextP=13;                                      // "Next" screen
+int prevP=7;                                       // "Previous" screen
 
 #include <LiquidCrystal.h>                        // LCD display library
 const int rs=12, en=11, d4=5, d5=4, d6=3, d7=2;   // Pin numbers for each connection
