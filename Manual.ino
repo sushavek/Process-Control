@@ -25,7 +25,7 @@ LiquidCrystal lcd(rs, en, d4, d5, d6, d7);             // Name or Initials for e
 void setup() {                                         // put your setup code here, to run once:                                                      
  pinMode(actuator, OUTPUT);                            // Actuator = LED as an output
  Serial.begin(9600);                                   // 9600 bits per sec second(baud rate)                     
- lcd.begin(16,2);
+ lcd.begin(16,2);                                      // columns, rows
 }
 
 void loop() {                                          // put your main code here, to run repeatedly:
@@ -44,11 +44,11 @@ void loop() {                                          // put your main code her
  if (down== 1){
   CO= CO - 1;
  }
- if (up == 255) {                                      // UP PB is at 255, CO will stay at 255 = Caping
-  CO == 255;                                           // the maximum value of CO it can get
+ if (up > 255) {                                      // UP PB is at 255, CO will stay at 255 = Caping
+  CO = 255;                                           // the maximum value of CO it can get
 
- if (down == 0) {                                      // DOWN PB is at 0, CO will stay at 0 = Caping
-  CO == 0;                                             // the minimum value of CO it can get
+ if (down < 0) {                                      // DOWN PB is at 0, CO will stay at 0 = Caping
+  CO = 0;                                             // the minimum value of CO it can get
  }
  }
  analogWrite(actuator, CO);                            // Writing the CO to the actuator
